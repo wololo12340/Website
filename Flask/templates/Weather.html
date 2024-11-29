@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Query</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .container {
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Weather Information</h1>
+      <form method="POST" class="mt-4">
+        <div class="form-group">
+          <label for="city">Enter City Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            name="city"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Get Weather</button>
+      </form>
+
+      {% if error %}
+      <div class="alert alert-danger mt-4">{{ error }}</div>
+      {% elif weather_info %}
+      <div class="alert alert-success mt-4">
+        <h4>Weather in {{ weather_info.city }}</h4>
+        <p>Temperature: {{ weather_info.temperature }} °C</p>
+        <p>Description: {{ weather_info.description }}</p>
+        <p>Humidity: {{ weather_info.humidity }}%</p>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

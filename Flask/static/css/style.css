@@ -1,0 +1,45 @@
+.Amazon-link {
+  font-size: 25px;
+  color:rgb(0,113,133);
+}
+.name{
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.status{
+  color:rgb(0,118,0);
+  font-weight: bold;
+  font-size:26px;
+  line-height:20px;
+}
+.delivery{
+  font-size:26px;
+  font-weight: 400;
+  line-height:20px;
+}
+.AbtAuthor{
+  background-color: rgb(255,216,20);
+  font-size: 20px;
+  height: 40px;
+  width: 200px;
+  border:none;
+  border-radius: 20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.AbtWeb{
+  background-color: rgb(255,164,28);
+  font-size: 20px;
+  height: 40px;
+  width: 220px;
+  border:none;
+  border-radius: 20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+body{
+  background-color: white;
+}

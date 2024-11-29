@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="HTML,CSS" />
+    <meta name="description" content="Chris's description of himself" />
+    <title>My First Web Page</title>
+    <style>
+      img {
+        width: 100px;
+        border-radius: 10px;
+        float: left;
+        margin-right: 10px;
+      }
+      .Amazon-link {
+        font-size: 25px;
+        color: rgb(0, 113, 133);
+      }
+      .username {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/HomePage"><p class="Amazon-link">Back to Homepage</p></a>
+    <img
+      src="{{url_for('static', filename='images/ChrisYe.png') }}"
+      alt="An image of Chris Ye"
+    />
+    <p class="username">@Chris_Ye</p>
+    <p>Chris is a teenager living in San Diego, CA.</p>
+    <p>He is 14 years old and is a Freshman at Canyon Crest Academy</p>
+  </body>
+</html>

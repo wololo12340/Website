@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NBA Player Stats</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center">NBA Player Stats</h1>
+      <form method="POST" class="mt-4">
+        <div class="form-group">
+          <label for="player_name">Enter Player Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="player_name"
+            name="player_name"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Get Stats</button>
+      </form>
+
+      {% if error %}
+      <div class="alert alert-danger mt-4">{{ error }}</div>
+      {% elif player_info %}
+      <div class="mt-4">
+        <h4>Player Stats</h4>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Season</th>
+              <th>Games Played</th>
+              <th>Points</th>
+              <th>Rebounds</th>
+              <th>Assists</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for stat in player_info %}
+            <tr>
+              <td>{{ stat.SEASON_ID }}</td>
+              <td>{{ stat.GP }}</td>
+              <td>{{ stat.PTS }}</td>
+              <td>{{ stat.REB }}</td>
+              <td>{{ stat.AST }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

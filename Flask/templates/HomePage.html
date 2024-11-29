@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa; /* Light gray background */
+        margin: 20px;
+        font-family: Arial, sans-serif;
+      }
+      .header {
+        text-align: center;
+        margin: 50px 0;
+        padding: 60px 0; /* Increased padding for larger welcome section */
+        background-color: #ffffff; /* White background for contrast */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      }
+      .name {
+        font-size: 50px; /* Larger font size */
+        font-weight: bold;
+      }
+      .status {
+        color: rgb(0, 118, 0);
+        font-weight: bold;
+        font-size: 26px;
+      }
+      .delivery {
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+      .btn-custom {
+        font-size: 18px;
+        height: 40px;
+        border-radius: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 0 20px;
+        transition: background-color 0.3s;
+      }
+      .btn-author {
+        background-color: rgb(255, 216, 20);
+        color: black;
+      }
+      .btn-author:hover {
+        background-color: rgb(255, 196, 0);
+      }
+      .btn-website {
+        background-color: rgb(255, 164, 28);
+        color: black;
+      }
+      .btn-website:hover {
+        background-color: rgb(255, 144, 0);
+      }
+      .blog-posts {
+        margin-top: 30px;
+      }
+      .blog-posts h2 {
+        margin-bottom: 20px;
+      }
+      .post-item {
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 10px;
+        transition: box-shadow 0.3s;
+      }
+      .post-item:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="name">Homepage</h1>
+      <h2>Welcome, {{ username }}!</h2>
+      <p class="status">A website made by <a href="/Profile">Chris Ye</a></p>
+      <p class="delivery">Have a great time exploring!</p>
+      <a href="/profile" class="btn btn-custom btn-author">About the Author</a>
+      <a href="/web_info" class="btn btn-custom btn-website">About this Website</a>
+      <a href="{{ url_for('weather') }}" class="btn btn-custom btn-author">Check Weather</a>
+      <a href="{{ url_for('nba') }}" class="btn btn-custom btn-website">NBA Player Stats</a>
+      <a href="{{ url_for('generate_title') }}" class="btn btn-custom btn-author">Generate AI Title</a>
+    </div>
+      <!-- New link for NBA page -->
+    </div>
+
+    <div class="blog-posts">
+      <h2>Blog Posts</h2>
+      <a href="/create_post" class="btn btn-primary mb-3">Create New Post</a>
+      <ul class="list-unstyled mt-3">
+        {% for post in posts %}
+        <li class="post-item">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.content }}</p>
+          <small class="text-muted">by {{ post.author }}</small>
+        </li>
+        {% else %}
+        <li class="post-item">No posts available.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>
